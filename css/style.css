@@ -12,7 +12,6 @@
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
     min-height: 100vh;
-    min-width: 970px;
 }
 
 /*header nav*/
@@ -138,10 +137,7 @@ a.logo-link{
     text-align: center;
 }
 
-
-
 /* end header-nav*/
-
 
 /*side-nav*/
 
@@ -154,6 +150,7 @@ aside{
     top: 90px;
     left: 5%; 
     z-index: 2;
+    display: none;
 }
 
 .side-nav{
@@ -219,22 +216,18 @@ aside{
     content: "Hire us"
 }
 
-
 /*end side-nav*/
-
 
 /*content*/
 
 main{
     padding-top: 61px;
-    margin-left: 101px;
 }
 
 section{
+    min-height: 500px;
     height: calc(100vh - 106px);
     padding-bottom: 50px;
-    margin-left: 45px;
-    margin-right: 135px;
     margin-top: 45px;
 }
 
@@ -268,9 +261,14 @@ div.introduction-banner h1{
 }
 
 div.introduction-img{
+    width: 511px;
     position: absolute;
     right: -12px;
     bottom: -6px;
+}
+
+div.introduction-img img{
+    width: 100%;
 }
 
 div.intro{
@@ -278,6 +276,11 @@ div.intro{
     justify-content: space-between;
     width: 90px;
     margin-top: 60px;
+    position: relative;
+}
+
+div.intro svg{
+    z-index: 2;
 }
 
 .intro-link{
@@ -285,26 +288,26 @@ div.intro{
     text-decoration: none;
     text-transform: uppercase;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 600;
     display: block;
-    position: relative;
     z-index: 2;
-    
 }
 
-/*
-.intro-link:before{
-    display: block;
-    content: "";
+.intro-link-bg, .intro-link-bg2{
     width: 80px;
-    height: 30px;
+    height: 35px;
     background: blue;
     z-index: 1;
     position: absolute;
-    top: -4px;
+    top: -7px;
     left: 20px;
+    transition: 0.4s;
 }
-*/
+
+div.intro:hover .intro-link-bg2{
+    left: -10px;
+}
+
 
 div.introduction-box{
     display: flex;
@@ -313,6 +316,7 @@ div.introduction-box{
     padding-bottom: 10px;
     font-size: 14px;
     color: #282828;
+    margin-top: 30px;
 }
 
 div.introduction-box h2{
@@ -343,7 +347,8 @@ section.works h2{
     position: relative;
 }
 
-.works-gallery-prev, .works-gallery-next{
+.works-gallery-prev,
+.works-gallery-next{
     position: absolute;
     width: 50px;
     height: 50px;
@@ -351,10 +356,13 @@ section.works h2{
     background: #282828;
     top: calc(50% - 75px);
     cursor: pointer;
+    text-align: center;
+    padding-top: 13px;
 }
 
 .works-gallery-prev{
     left: -25px;
+    transform: rotate(180deg);
 }
 
 .works-gallery-next{
@@ -462,7 +470,17 @@ section.about h2:after{
     color: #ffffff;
     text-decoration: none;
     font-size: 14px;
+    font-weight: 600;
     text-transform: uppercase;
+}
+
+.about-link svg{
+    margin-left: 5px;
+    transition: 0.4s
+}
+
+.about-link:hover svg{
+    margin-left: 15px;
 }
 
 .about-values{
@@ -485,7 +503,6 @@ section.about h2:after{
     text-transform: uppercase;
     text-decoration: none;
     font-weight: 700;
-    
 }
 
 .about-values-item span{
@@ -518,18 +535,13 @@ section.about h2:after{
 
 /*contact section*/
 
-/*section.contact{
-    position: relative;
-}*/
-
 .contact-bgr{
     background: url("../img/contact-visual.png");
     background-position: center;
     position: absolute;
+    margin-left: -5%;
     height: 100%;
     width: 100%;
-    margin-top: -106px;
-    margin-left: -215px;
     z-index: 1;  
 }
 
@@ -541,7 +553,7 @@ section.about h2:after{
     height: 50vh;
     width: 300px;
     margin-top: 25vh;
-    margin-left: 65%;
+    margin-left: 50%;
     background: #0c0c0c;
     padding: 30px;
     font-size: 14px;
@@ -574,11 +586,9 @@ section.about h2:after{
     background: blue;
     text-transform: uppercase;
 }
-
+/*end contact section*/
 
 /*hire us section*/
-
-/*end hire us section*/
 
 section.hire-us{
     display: flex;
@@ -590,23 +600,42 @@ section.hire-us{
 section.hire-us h2{
     font-size: 30px;
     text-align: center;
+    z-index: 2;
+}
+
+.hire-us-skill{
+    display: flex;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .hire-skill-box{
+    display: flex;
+    justify-content: space-between;
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.hire-skill-box:last-child{
+    width: 72%;
+    justify-content: space-around;
 }
 
 .hire-skill-box p{
     display: inline-block;
     border: 2px solid #ffffff;
-    margin-left: 20px;
-    margin-right: 20px;
     width: 200px;
     height: 50px;
     padding-top: 13px;
     text-transform: capitalize;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 input{
@@ -640,40 +669,92 @@ input[type="submit"]{
     background: blue;
 }
 
-/*end contact section*/
+/*end hire us section*/
 
-/*end content*/
+/*layout*/
 
+@media (min-width: 1236px){
+    aside{
+        display: block;
+    }
+    main{
+        margin-left: 101px;
+    }
+    section{
+        margin-left: 45px;
+        margin-right: 135px;
+    }
+    .contact-bgr{
+        margin-top: -106px;
+        margin-left: -215px;
+    }
+    div.contact-field{
+        margin-left: 65%;
+    }
+}
 
+@media (max-width: 900px){
+    div.introduction-banner h1{
+        font-size: 55px;
+    }
+    div.introduction-img{
+       width: 430px;
+    }
+}
 
+@media (max-width: 767px){
+    div.introduction-banner h1{
+        font-size: 44px;
+    }
+    div.introduction-img{
+       width: 330px;
+    }
+    div.introduction-box{
+        flex-direction: column;
+    }
+    div.introduction-box div{
+        width: 100%;
+    }
+    div.contact-field{
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .hire-us-skill{
+        -webkit-flex-direction: row;
+        -moz-flex-direction: row;
+        -ms-flex-direction: row;
+        -o-flex-direction: row;
+        flex-direction: row;
+        padding: 0 10%;
+    }
+    .hire-skill-box{
+        width: auto;
+    }
+}
 
+@media (max-width: 600px){
+    div.introduction-img,
+    div.introduction-banner:after,
+    div.introduction-box,
+    .works-gallery-item:first-child,
+    .works-gallery-item:last-child,
+    section.about img,
+    .about-values{
+        display: none;
+    }
+    div.introduction-banner{
+        padding-top: 20%;
+        border-bottom: none;
+    }
+    div.introduction-banner h1{
+        font-size: 55px;
+    }
+    section.works{
+        padding:0 5%;
+    }
+    .works-gallery ul{
+        justify-content: center;
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*end layout*/
